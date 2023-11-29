@@ -1,6 +1,6 @@
 # Getting Started with Create React App
-[App Screenshot](public/Screenshot 2023-11-29 112039.png)
-![App Screenshot](https://raw.githubusercontent.com/Maykkkk/Stock-Visualization-app/master/public/Screenshot%20from%202023-11-07%2006-15-58.png)
+![App Screenshot](https://github.com/Maykkkk/Task-manager/blob/ce904b9e811e906370cf73cf7c239df7953234d3/public/Screenshot%202023-11-29%20112039.png)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
