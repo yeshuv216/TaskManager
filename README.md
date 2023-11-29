@@ -3,6 +3,21 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Topics
+
+- [react](https://github.com/topics/react)
+- [react-router](https://github.com/topics/react-router)
+- [state-management](https://github.com/topics/state-management)
+- [local-storage](https://github.com/topics/local-storage)
+- [bootstrap](https://github.com/topics/bootstrap)
+- [task-management](https://github.com/topics/task-management)
+- [responsive-design](https://github.com/topics/responsive-design)
+- [jest](https://github.com/topics/jest)
+- [github-pages](https://github.com/topics/github-pages)
+- [css-framework](https://github.com/topics/css-framework)
+- [web-development](https://github.com/topics/web-development)
+
+
 ## Available Scripts
 
 In the project directory, you can run:
