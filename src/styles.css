@@ -20,16 +20,16 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #85dcb8; /* Same background color as the container */
+    background-color: #85dcb8;
     padding: 10px 0;
-    z-index: 1; /* Ensure the header is above other elements */
+    z-index: 1; 
   }
   .task-manager-footer {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #E8A87C; /* Same background color as the container */
+    background-color: #E8A87C; 
     padding: 10px 0;
-    z-index: 1; /* Ensure the footer is above other elements */
+    z-index: 1;
   }
