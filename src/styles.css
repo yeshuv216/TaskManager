@@ -1,0 +1,35 @@
+/* src/styles.css */
+.main-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .background-container {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+.task-manager-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #85dcb8; /* Same background color as the container */
+    padding: 10px 0;
+    z-index: 1; /* Ensure the header is above other elements */
+  }
+  .task-manager-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #E8A87C; /* Same background color as the container */
+    padding: 10px 0;
+    z-index: 1; /* Ensure the footer is above other elements */
+  }
