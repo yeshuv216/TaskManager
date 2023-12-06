@@ -1,34 +1,36 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-
-const AddTaskForm = () => {
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { getEditTaskAction } from '../../redux/actions';
+import { useSelector } from 'react-redux';
+const EditTaskForm = () => {
+  const { taskId } = useParams();
+  const [task, setTask] = useState({});
   const [taskName, setTaskName] = useState('');
   const [taskDescription, setTaskDescription] = useState('');
   const [priority, setPriority] = useState('low');
+  const tasksState = useSelector((state) => state.tasksReducer);
+  const selectedTask = tasksState?.tasks.find(task => task?.text?.id === parseInt(taskId, 10));
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Fetch tasks from local storage on component mount
+  
+    setTask(selectedTask);
+    setTaskName(selectedTask?.text?.name);
+    setTaskDescription(selectedTask?.text?.description);
+    setPriority(selectedTask?.text?.priority);
+  }, [taskId]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!taskName) {
-      alert('Task name is required!');
-      return;
-    }
-
-    const newTask = {
-      id: Date.now(),
+    const updatedTask = {
+      ...task,
       name: taskName,
       description: taskDescription,
       priority,
-      completed: false,
     };
-
-    // Fetch existing tasks from local storage
-    const existingTasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    const updatedTasks = [...existingTasks, newTask];
-
-    // Save updated tasks to local storage
-    localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+    getEditTaskAction(updatedTask)
 
     // Navigate to task list page
     navigate('/');
@@ -40,8 +42,8 @@ const AddTaskForm = () => {
       <header className="mb-4 text-center task-manager-header">
           <h1 className="font-weight-bold">Task Manager</h1>
         </header>
-        <div className="container mt-4" style={{ background: '#F0E68C', padding: '20px', borderRadius: '8px' }}>
-          <h1 className="mb-4">Add Task</h1>
+        <div className="container mt-4" style={{ background: '#87CEEB', padding: '20px', borderRadius: '8px' }}>
+          <h1 className="mb-4 text-center">Edit Task</h1>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label className="form-label">Task Name:</label>
@@ -72,16 +74,18 @@ const AddTaskForm = () => {
                 <option value="high">High</option>
               </select>
             </div>
-            <button type="submit" className="btn btn-primary">Add Task</button>
+            <div className="d-flex justify-content-center mt-3">
+              <button type="submit" className="btn btn-primary mx-2">Save Changes</button>
+              <Link to="/" className="btn btn-secondary mx-2">Back to Task List</Link>
+            </div>
           </form>
-          <Link to="/" className="btn btn-secondary mt-3">Back to Task List</Link>
         </div>
         <footer className="mt-4 text-center task-manager-footer">
-          <p>&copy; 2023 @Mayank Gupta</p>
+          <p>&copy; 2023 @Yeshu varshney</p>
         </footer>
       </div>
     </div>
   );
 };
 
-export default AddTaskForm;
+export default EditTaskForm;
